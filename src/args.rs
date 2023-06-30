@@ -1,6 +1,8 @@
 use anyhow::ensure;
 use clap::Parser;
 
+const BASE58_CHARS: &str = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+
 #[derive(Debug, Parser, Default)]
 #[command(author, version, about, long_about = None)]
 pub struct Args {
@@ -86,8 +88,7 @@ impl Args {
     }
 
     fn is_base58(&self, value: &str) -> bool {
-        let base58_chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
-        value.chars().all(|c| base58_chars.contains(c))
+        value.chars().all(|c| BASE58_CHARS.contains(c))
     }
 }
 
