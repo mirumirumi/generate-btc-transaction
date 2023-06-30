@@ -42,3 +42,33 @@ https://blockstream.info/testnet/tx/6228dedb6c7f743114093934fce3577013d0673b9688
 https://live.blockcypher.com/btc-testnet/tx/2a4bb3ed0533d9e1d4c896003e4ed0a1378e128c984632a0080b491ba316f3eb/
 
 https://live.blockcypher.com/btc-testnet/tx/d73ebea9ad590316b5fbae5a176937178cdba72c1422a1636817a8f864a9c331/
+
+## ユニットテスト結果
+
+```sh
+$ cargo test
+  Finished test [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src/main.rs (target/debug/deps/generate_btc_transaction-0ee1fb077933d7b2)
+
+running 18 tests
+test args::tests::test_is_base58::case_4 ... ok
+test args::tests::test_is_base58::case_3 ... ok
+test args::tests::test_is_hexadecimals::case_2 ... ok
+test args::tests::test_is_base58::case_1 ... ok
+test args::tests::test_is_hexadecimals::case_3 ... ok
+test args::tests::test_is_hexadecimals::case_1 ... ok
+test args::tests::test_is_base58::case_2 ... ok
+test tx::tests::test_calc_change_amount::case_1 ... ok
+test tx::tests::test_calc_change_amount::case_2 ... ok
+test tx::tests::test_new::case_3 ... ok
+test tx::tests::test_create_script_sig::case_1 ... ok
+test tx::tests::test_calc_change_amount::case_3 - should panic ... ok
+test tx::tests::test_new::case_5 ... ok
+test tx::tests::test_new::case_4 ... ok
+test tx::tests::test_new::case_1 ... ok
+test tx::tests::test_new::case_2 ... ok
+test tx::tests::test_create_script_sig::case_3 ... ok
+test tx::tests::test_create_script_sig::case_2 ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+```

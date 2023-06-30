@@ -1,7 +1,7 @@
 use anyhow::ensure;
 use clap::Parser;
 
-const BASE58_CHARS: &str = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+const BASE58_CHARS: &str = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789";
 
 #[derive(Debug, Parser, Default)]
 #[command(author, version, about, long_about = None)]
