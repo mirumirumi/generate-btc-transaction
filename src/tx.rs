@@ -1,4 +1,4 @@
-use std::str::FromStr;
+use std::{mem::size_of_val, str::FromStr};
 
 use bitcoin::{
     absolute::LockTime,
@@ -143,7 +143,7 @@ impl<C: Context + Signing> TxBuilder<C> {
         let mut script_sig = Vec::new();
 
         let serialized_sig = signature.serialize_der();
-        script_sig.push((serialized_sig.len() as u8) + SIGHASH_ALL);
+        script_sig.push((serialized_sig.len() as u8) + size_of_val(&SIGHASH_ALL) as u8);
         script_sig.extend_from_slice(&serialized_sig);
         script_sig.push(SIGHASH_ALL);
 
